@@ -142,25 +142,8 @@ class Drawer extends Component {
     }
   }
 
-<<<<<<< HEAD
-  componentDidMount () {
-    Orientation.addOrientationListener(this._orientationDidChange);
-  },
-
-  componentWillUnmount () {
-    Orientation.removeOrientationListener(this._orientationDidChange);
-  },
-
-  _orientationDidChange (orientation) {
-    deviceScreen = flipDevice(deviceScreen);
-  },
-
-  componentDidUpdate () {
-    if(this._syncAfterUpdate){
-=======
   componentDidUpdate() {
     if (this._syncAfterUpdate) {
->>>>>>> root-two/master
       this._syncAfterUpdate = false
       this._open ? this.open() : this.close()
     }

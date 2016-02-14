@@ -1,6 +1,8 @@
 ## React Native Drawer
 <img width="220px" align="right" src="https://raw.githubusercontent.com/rt2zz/react-native-drawer/master/examples/rn-drawer.gif" />
 
+**NOTE** there have been some fairly major, and potentially buggy changes in 1.16.0. Please test it out and report feedback. We will troubleshoot asap.  
+
 React native drawer, configurable to achieve material design style, slack style, parallax, and more. Works in both iOS and Android.
 
 [![npm version](https://img.shields.io/npm/v/react-native-drawer.svg?style=flat-square)](https://www.npmjs.com/package/react-native-drawer)
@@ -20,16 +22,16 @@ React native drawer, configurable to achieve material design style, slack style,
 
 ### Usage
 ```javascript
-var Drawer = require('react-native-drawer')
+import Drawer from 'react-native-drawer'
 
-var Application = React.createClass({
-  closeControlPanel: function(){
-    this.refs.drawer.close()
-  },
-  openControlPanel: function(){
-    this.refs.drawer.open()
-  },
-  render: function() {
+class Application extends Component {  
+  closeControlPanel = () => {
+    this.drawer.close()
+  };
+  openControlPanel = () => {
+    this.drawer.open()
+  };
+  render () {
     return (
       <Drawer
         ref="drawer"
@@ -146,7 +148,7 @@ Will result in a skewed fade out animation.
 Two options:
 1. Using the Drawer Ref:
 ```js
-onPress={() => {this.refs.drawer.open()}}
+onPress={() => {this.drawer.open()}}
 ```
 2. Using Context
 ```js

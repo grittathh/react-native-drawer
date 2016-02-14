@@ -256,11 +256,11 @@ class Drawer extends Component {
     if (this.props.disabled) return false
     let x0 = e.nativeEvent.pageX
 
-    let deltaOpen = this.props.side === 'left' ? deviceScreen.width - x0 : x0
-    let deltaClose = this.props.side === 'left' ? x0 : deviceScreen.width - x0
+    let deltaOpen = this.props.side === 'left' ? this.state.viewport.width - x0 : x0
+    let deltaClose = this.props.side === 'left' ? x0 : this.state.viewport.width - x0
 
-    let whenClosedMask = this.props.panOpenMask % 1 === 0 && this.props.panOpenMask > 1 ? this.props.panOpenMask : deviceScreen.width * this.props.panOpenMask
-    let whenOpenMask = this.props.panCloseMask % 1 === 0 && this.props.panCloseMask > 1 ? this.props.panCloseMask : deviceScreen.width * this.props.panCloseMask
+    let whenClosedMask = this.props.panOpenMask % 1 === 0 && this.props.panOpenMask > 1 ? this.props.panOpenMask : this.state.viewport.width * this.props.panOpenMask
+    let whenOpenMask = this.props.panCloseMask % 1 === 0 && this.props.panCloseMask > 1 ? this.props.panCloseMask : this.state.viewport.width * this.props.panCloseMask
     if ( this._open && deltaOpen > whenOpenMask ) return false
     if ( !this._open && deltaClose > whenClosedMask ) return false
     return true

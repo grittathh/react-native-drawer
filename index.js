@@ -1,48 +1,3 @@
-<<<<<<< HEAD
-var React = require('react-native')
-var { PanResponder, View, StyleSheet, Dimensions, PropTypes } = React
-var deviceScreen = Dimensions.get('window')
-var tween = require('./Tweener')
-var Orientation = require('react-native-orientation')
-
-Orientation.getOrientation((err,orientation)=> {
-  console.log("Current Device Orientation: ", orientation);
-  if(orientation == 'LANDSCAPE' && (deviceScreen.height > deviceScreen.width)) {
-    deviceScreen = flipDevice(deviceScreen);
-  }
-  if(orientation == 'PORTRAIT' && (deviceScreen.height < deviceScreen.width)) {
-    deviceScreen = flipDevice(deviceScreen);
-  }
-});
-
-function flipDevice(deviceScreen) {
-  var temp = deviceScreen.width;
-  deviceScreen.width = deviceScreen.height;
-  deviceScreen.height = temp;
-  return deviceScreen;
-}
-
-var drawer = React.createClass({
-
-  _left: 0,
-  _prevLeft: 0,
-  _offsetOpen: 0,
-  _offsetClosed: 0,
-  _open: false,
-  _panning: false,
-  _tweenPending: false,
-  _lastPress: 0,
-  _panStartTime: 0,
-  _syncAfterUpdate: false,
-
-  statics: {
-    tweenPresets: {
-      parallax: (ratio, side = 'left') => {
-        var drawer = {}
-        drawer[side] = -150*(1-ratio)
-        return { drawer: drawer }
-      }
-=======
 import React, {
   PanResponder,
   View,
@@ -73,7 +28,6 @@ class Drawer extends Component {
     parallax: (ratio, side = 'left') => {
       let drawer = { [side] : -150 * (1 - ratio)}
       return { drawer }
->>>>>>> root-two/master
     }
   };
 
